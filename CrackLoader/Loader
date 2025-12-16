@@ -1,0 +1,32 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local ScriptsByPlace = {
+    [123456789] = "",
+    [93978595733734] = ""
+}
+
+local placeId = game.PlaceId
+local url = ScriptsByPlace[placeId]
+
+if not url then
+    LocalPlayer:Kick("แมพไม่รองรับรันหาพ่อมึงหรอ / Why do you use hacks?")
+    return
+end
+
+local ok, res = pcall(function()
+    return game:HttpGet(url)
+end)
+
+if not ok then
+    LocalPlayer:Kick("โง่แล้วยังจะเสือกใช้อีกนะมึง / StUpld")
+    return
+end
+
+local fn, err = loadstring(res)
+if not fn then
+    LocalPlayer:Kick("Script corrupted")
+    return
+end
+
+pcall(fn)
