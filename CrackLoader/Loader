@@ -3,7 +3,7 @@ local LocalPlayer = Players.LocalPlayer
 
 local ScriptsByPlace = {
     [123456789] = "",
-    [93978595733734] = "https://raw.githubusercontent.com/Olaffyz/Main/refs/heads/main/CrackLoader/PlaceId/93978595733734.lua"
+    [93978595733734] = "loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/06a54130a4441e313b1888bcd98e4ee854fb57fe66d9927ac224f6d4b58e88ed/download"))()"
 }
 
 local placeId = game.PlaceId
