@@ -1,16 +1,16 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local ScriptsByPlace = {
-    [590359607] = "https://raw.githubusercontent.com/Olaffyz/Main/refs/heads/main/CrackLoader/PlaceId/590359607.lua",
-    [6739698191] = "https://raw.githubusercontent.com/Olaffyz/Main/refs/heads/main/CrackLoader/PlaceId/6739698191.lua"
+local ScriptsByGame = {
+    [590359607] = "https://raw.githubusercontent.com/Olaffyz/Main/main/CrackLoader/GameId/590359607.lua",
+    [6739698191] = "https://raw.githubusercontent.com/Olaffyz/Main/main/CrackLoader/GameId/6739698191.lua"
 }
 
-local placeId = game.PlaceId
-local url = ScriptsByPlace[placeId]
+local gameId = game.GameId
+local url = ScriptsByGame[gameId]
 
 if not url then
-    LocalPlayer:Kick("แมพไม่รองรับรันหาพ่อมึงหรอ / Why do you use hacks?")
+    LocalPlayer:Kick("แมพไม่รองรับรันหาแม่มึงหรอ / Script not Support this Map")
     return
 end
 
@@ -18,14 +18,14 @@ local ok, res = pcall(function()
     return game:HttpGet(url)
 end)
 
-if not ok then
-    LocalPlayer:Kick("โง่แล้วยังจะเสือกใช้อีกนะมึง / StUpld")
+if not ok or not res then
+    LocalPlayer:Kick("Failed to load script")
     return
 end
 
 local fn, err = loadstring(res)
 if not fn then
-    LocalPlayer:Kick("Script corrupted")
+    LocalPlayer:Kick("อิย๊าาาา / eitai eitai")
     return
 end
 
