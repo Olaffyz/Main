@@ -2,8 +2,8 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 local ScriptsByGame = {
-    [590359607] = "https://raw.githubusercontent.com/Olaffyz/Main/main/CrackLoader/GameId/590359607.lua",
-    [6739698191] = "https://raw.githubusercontent.com/Olaffyz/Main/main/CrackLoader/GameId/6739698191.lua"
+    [590359607] = "https://raw.githubusercontent.com/Olaffyz/Main/refs/heads/main/CrackLoader/PlaceId/590359607.lua",
+    [6739698191] = "https://raw.githubusercontent.com/Olaffyz/Main/refs/heads/main/CrackLoader/PlaceId/6739698191.lua"
 }
 
 local gameId = game.GameId
