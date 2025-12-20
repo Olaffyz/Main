@@ -1,1 +1,32 @@
-loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/0c84a2b8b4073a25da959b94499bfdd626677e42b21ef4246bfcaf51c33ccbdc/download"))()
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local ScriptsByGame = {
+    [590359607] = "loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/72e053ba5d82912a2cddf7a371a3ab8de7bd5cbad09b2badda78ffbca0b283e3/download"))()",
+    [6739698191] = "https://raw.githubusercontent.com/Olaffyz/Main/refs/heads/main/CrackLoader/PlaceId/6739698191.lua"
+}
+
+local gameId = game.GameId
+local url = ScriptsByGame[gameId]
+
+if not url then
+    LocalPlayer:Kick("แมพไม่รองรับรันหาแม่มึงหรอ / Script not Support this Map")
+    return
+end
+
+local ok, res = pcall(function()
+    return game:HttpGet(url)
+end)
+
+if not ok or not res then
+    LocalPlayer:Kick("Failed to load script")
+    return
+end
+
+local fn, err = loadstring(res)
+if not fn then
+    LocalPlayer:Kick("อิย๊าาาา / eitai eitai")
+    return
+end
+
+pcall(fn)
