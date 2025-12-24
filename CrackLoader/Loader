@@ -3,7 +3,7 @@ local LocalPlayer = Players.LocalPlayer
 
 local ScriptsByGame = {
     [590359607] = "https://api.junkie-development.de/api/v1/luascripts/public/72e053ba5d82912a2cddf7a371a3ab8de7bd5cbad09b2badda78ffbca0b283e3/download",
-    [6739698191] = "https://pandadevelopment.net/virtual/file/de8ba6adeff4710b"
+    [6739698191] = "https://pandadevelopment.net/virtual/file/6dbae9eda32ee8dd"
 }
 
 local gameId = game.GameId
