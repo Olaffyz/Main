@@ -18,15 +18,23 @@ local ok, res = pcall(function()
     return game:HttpGet(url)
 end)
 
-if not ok or not res then
-    LocalPlayer:Kick("Failed to load script")
+if not ok or type(res) ~= "string" then
+    warn("[Loader] HttpGet failed")
+    return
+end
+
+if res:sub(1, 1) == "<" then
+    warn("[Loader] Response is HTML, not Lua")
     return
 end
 
 local fn, err = loadstring(res)
 if not fn then
-    LocalPlayer:Kick("อิย๊าาาา / eitai eitai")
+    warn("[Loader] Compile error:", err)
     return
 end
 
-pcall(fn)
+local runOk, runErr = pcall(fn)
+if not runOk then
+    warn("[Loader] Runtime error:", runErr)
+end
